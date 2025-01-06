@@ -64,89 +64,82 @@ The Analysis leverages multiple datasets from Staples to understand consumer beh
 |         Week          |      INT      |                         The week number of the year                          |
 |         Year          |      INT      |                  The year in which the transaction occurred                  |
 
-**Data Warehouse Design and Implementation**
+Data Warehouse Design and Implementation
 
-*Dimension modeling process\
-*\
+Dimension modeling process
+
 ![Dimension Modeling Process](figures/DimensionModeling.png)
 
-*Star Schema\
-*\
+Star Schema
+
 ![Star Schema](figures/StarSchema.png)
 
-\
-*Snapshot of Our Dataset\
-*\
+Snapshot of Our Dataset
+
 ![Dataset](figures/SnapshotDataset.png)
 
 *Snapshot of Python code to connect and data import*
 
 ![](figures/PythonCode.png)
 
-*Control Flow Diagram\
-\
-*![](figures/ControlFlow.png)
+Control Flow Diagram
+
+![](figures/ControlFlow.png)
 
 SSIS is used to generate a star schema.
 
-**Data Flow Diagram (DFD)\
-**\
-*Customer DFD*
+Data Flow Diagram (DFD)
+
+Customer DFD
 
 ![](figures/CustomerDFD.png)
 
-*Order DFD*
+Order DFD
 
 ![](figures/OrderDFD.png)
 
-*Derived Column On Time*\
-(Ship_Mode== "First Class" && (DATEDIFF("day",(DT_DBTIMESTAMP)Order_Date,(DT_DBTIMESTAMP)Ship_Date) \<= 2)) ? 1 : (Ship_Mode == "Second Class" && (DATEDIFF("day",(DT_DBTIMESTAMP)Order_Date,(DT_DBTIMESTAMP)Ship_Date) \<= 3)) ? 1 : (Ship_Mode == "Standard Class" && (DATEDIFF("day",(DT_DBTIMESTAMP)Order_Date,(DT_DBTIMESTAMP)Ship_Date) \<= 5)) ? 1 : (Ship_Mode == "Same Day" && DATEDIFF("day",(DT_DBTIMESTAMP)Order_Date,(DT_DBTIMESTAMP)Ship_Date) \<= 1) ? 1 : 0
-
-*Turnaround Time*\
-DATEDIFF("DAY",(DT_DBTIMESTAMP)Order_Date,(DT_DBTIMESTAMP)Ship_Date)
-
-*FACT DFD*\
+FACT DFD
 ![](figures/FactDFD.png)
 
-**Data Preparation**
+Data Preparation
 
 The dataset was successfully loaded into a panda DataFrame, which contains 10,194 entries and 20 columns, detailing order information, customer data, product categories, sales, quantities, discounts, and profits.
 
 Few uncertainties in the data were removed for clarity and uniformity.\
 ![](figures/RemoveUncertainities.png)
 
-*Duplicate Removal*\
+Duplicate Removal
 Checked for duplicate rows in the data, identifying and removing 5 duplicate entries.\
 ![](figures/DuplicateRemoval.png)
 
-![](figures/DuplicateRemoval1.png)\
-\
-*Missing Values*\
+![](figures/DuplicateRemoval1.png)
+
+Missing Values
 Identified missing values in columns 'Segment', 'Sales', and 'Quantity', with 50 missing entries each.
 
 ![](figures/MissingValues.png)
 
-**Data Visualization**
+Data Visualization
 
 Several visualizations were created, including a histogram for the Quantity sold based on Sub-Category and a scatter plot comparing sales and profit, providing visual insights into the data distributions and relationships between key variables. The visualizations generated for the Data preprocessing can be seen below.
 
 A histogram for 'Quantity' sold based on 'Sub-Category' distribution showed that the Sub-Category 'Binders' sold the most quantity among other categories.\
 ![](figures/VisualCode.png)
 
-![](figures/VisualCodePlot.png)\
-\
-A scatter plot between 'Sales' and 'Profit' revealed the relationship between these two variables, highlighting the variance in profit for given sales figures and potential outliers or high-leverage points that could influence further analysis.\
+![](figures/VisualCodePlot.png)
+
+A scatter plot between 'Sales' and 'Profit' revealed the relationship between these two variables, highlighting the variance in profit for given sales figures and potential outliers or high-leverage points that could influence further analysis.
 ![](figures/ScatterPlotCode.png)
 
 ![](figures/ScatterPlot.png)
 
-**Data Exploration**
+Data Exploration
 
 Exploratory Data Analysis (EDA) Descriptive Statistics: Calculated descriptive statistics, providing a summary of the central tendency, dispersion, and shape of the dataset's distribution. Descriptive statistics for 'Sales' and 'Profit' were included, offering insights into average sales and profit margins, as well as understanding the variability and distribution of these key metrics.
 
 ![](figures/EDACode.png)
 
-*Descriptive Statistics Results*\
+Descriptive Statistics Results
 The average (mean) 'Sales' were approximately \$228, but the median (50th percentile) was much lower at \$53.91, indicating the presence of high-value sales transactions that skew the average.
 
 The 'Profit' had a mean of approximately \$28.67 and a median of \$8.69, suggesting that most transactions yielded a modest profit, with a few transactions resulting in significantly higher profits.
@@ -159,22 +152,22 @@ The standard deviation for 'Profit' was relatively high, pointing to large varia
 
 ![](figures/EDACode3.png)
 
-**Data Transformation**
+Data Transformation
 
-\
-*One Hot Encoding\
-*\
+
+One Hot Encoding
+
 This technique converts categorical variables into a form that could be provided to machine learning algorithms to better predict the outcome. However, an error with the OneHotEncoder suggests there might have been a problem with this step.
 
 ![](figures/OneHotEncoding.png)
 
-*Standardization*\
-\
+Standardization
+
 We included a computation of z-scores for the 'Sales' column, which is a form of standardization. This process adjusts the data to have a mean of 0 and a standard deviation of 1, which is particularly useful for comparison between different datasets and for models that assume normally distributed data.
 
 ![](figures/Standardization.png)
 
-**Data Analysis and Results**
+Data Analysis and Results
 
 ![](figures/DataAnalysisResults1.png)
 
@@ -218,7 +211,7 @@ The bar chart illustrates this by displaying a much higher average on-time deliv
 
 Linking back to the initial problem statement of increasing competition, customer retention, and cost optimization, our proposed solutions provide a comprehensive strategy to leverage data-driven insights for tactical and strategic decision-making. Implementing these recommendations will enable Staples to not only defend but also expand its market share by enhancing the customer experience and optimizing operational efficiencies.
 
-Targeted Investment in High-Impact Categories: Our analysis identifies categories that significantly contribute to sales, aligning with the goal of strengthening market position against rising e-commerce competition. Resources can be allocated more effectively to ensure inventory meets demand, particularly for high-performing categories identified in our analysis.
+Targeted Investment in High-Impact Categories: Our analysis identifies categories that significantly contribute to sales, aligning to strengthen market position against rising e-commerce competition. Resources can be allocated more effectively to ensure inventory meets demand, particularly for high-performing categories identified in our analysis.
 
 Optimization of Shipping for Enhanced Customer Retention: With 'Same Day' shipping showing a positive impact on on-time delivery rates, optimizing shipping options can directly enhance customer satisfaction. This aligns with the need for personalized customer experiences, as reliable and fast delivery is a critical component of such strategies. Implementing a tiered shipping strategy that prioritizes 'Same Day' delivery for premium customers can significantly enhance customer retention and satisfaction.
 

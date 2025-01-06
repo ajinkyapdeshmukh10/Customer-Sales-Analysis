@@ -72,7 +72,7 @@ The Analysis leverages multiple datasets from Staples to understand consumer beh
 
 *Star Schema\
 *\
-![Star Schema](figures/StarSchema.png){width="448"}
+![Star Schema](figures/StarSchema.png)
 
 \
 *Snapshot of Our Dataset\
@@ -81,7 +81,7 @@ The Analysis leverages multiple datasets from Staples to understand consumer beh
 
 *Snapshot of Python code to connect and data import*
 
-![](figures/PythonCode.png){width="622"}\
+![](figures/PythonCode.png)
 
 *Control Flow Diagram\
 \
@@ -116,7 +116,7 @@ Few uncertainties in the data were removed for clarity and uniformity.\
 ![](figures/RemoveUncertainities.png)
 
 *Duplicate Removal*\
-Checked for duplicate rows in the data, identifying and removing a total of 5 duplicate entries.\
+Checked for duplicate rows in the data, identifying and removing 5 duplicate entries.\
 ![](figures/DuplicateRemoval.png)
 
 ![](figures/DuplicateRemoval1.png)\
@@ -128,7 +128,7 @@ Identified missing values in columns 'Segment', 'Sales', and 'Quantity', with 50
 
 **Data Visualization**
 
-Several visualizations were created, including histogram for Quantity sold based on Sub-Category, and a scatter plot comparing sales and profit, providing visual insights into the data distributions and relationships between key variables. The visualizations which are generated for the Data preprocessing can be seen below.
+Several visualizations were created, including a histogram for the Quantity sold based on Sub-Category and a scatter plot comparing sales and profit, providing visual insights into the data distributions and relationships between key variables. The visualizations generated for the Data preprocessing can be seen below.
 
 A histogram for 'Quantity' sold based on 'Sub-Category' distribution showed that the Sub-Category 'Binders' sold the most quantity among other categories.\
 ![](figures/VisualCode.png)
@@ -204,7 +204,7 @@ The purpose of this visualization is to provide a comprehensive view of sales tr
 
 The visualization displays a comprehensive analysis of sales data over several years. It consists of three parts:
 
-Data Table: This table shows monthly sales data for each year, including actual sales, target sales, and the deviation between the two. This allows for a detailed month-by-month comparison of expected versus actual financial performance. Bar Chart: Represents the count of sales transactions each month. Line Chart: Plots the sum of sale deviations (difference between actual and target sales) over the same period.
+Data Table: This table shows monthly sales data for each year, including actual sales, target sales, and the deviation between the two. This allows for a detailed month-by-month comparison of expected versus actual financial performance. Bar Chart: This represents the count of sales transactions each month. Line Chart: Plots the sum of sale deviations (difference between actual and target sales) over the same period.
 
 The combination of these elements in the visualization provides a clear overview of sales performance, highlighting where and when sales fell short of or exceeded targets. This kind of analysis is critical for businesses to understand sales trends, identify potential issues, and make informed decisions to improve future performance.
 
@@ -226,4 +226,4 @@ Promotional Strategies Tailored to Payment Preferences: By leveraging insights f
 
 Performance Tracking and Adjustment: Integrating real-time tracking tools to monitor sales performance against targets enables quick strategic adjustments, helping to mitigate risks associated with inventory excess or shortages.
 
-Utilization of Sales Transaction Frequencies: Insights into when sales transactions peak provides invaluable data for managing inventory more effectively, crucial for responding to increased competition and optimizing costs. Using predictive analytics to understand customer purchasing patterns can facilitate more personalized marketing and sales strategies, thereby increasing customer engagement and retention.
+Utilization of Sales Transaction Frequencies: Insights into when sales transactions peak provide invaluable data for managing inventory more effectively, crucial for responding to increased competition and optimizing costs. Using predictive analytics to understand customer purchasing patterns can facilitate more personalized marketing and sales strategies, thereby increasing customer engagement and retention.

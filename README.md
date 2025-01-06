@@ -64,17 +64,17 @@ The Analysis leverages multiple datasets from Staples to understand consumer beh
 |         Week          |      INT      |                         The week number of the year                          |
 |         Year          |      INT      |                  The year in which the transaction occurred                  |
 
-Data Warehouse Design and Implementation
+**Data Warehouse Design and Implementation**
 
-Dimension modeling process
+**Dimension modeling process**
 
 ![Dimension Modeling Process](figures/DimensionModeling.png)
 
-Star Schema
+**Star Schema**
 
 ![Star Schema](figures/StarSchema.png)
 
-Snapshot of Our Dataset
+**Snapshot of Our Dataset**
 
 ![Dataset](figures/SnapshotDataset.png)
 
@@ -82,13 +82,13 @@ Snapshot of Our Dataset
 
 ![](figures/PythonCode.png)
 
-Control Flow Diagram
+*Control Flow Diagram*
 
 ![](figures/ControlFlow.png)
 
 SSIS is used to generate a star schema.
 
-Data Flow Diagram (DFD)
+*Data Flow Diagram (DFD)*
 
 Customer DFD
 
@@ -99,9 +99,10 @@ Order DFD
 ![](figures/OrderDFD.png)
 
 FACT DFD
+
 ![](figures/FactDFD.png)
 
-Data Preparation
+**Data Preparation**
 
 The dataset was successfully loaded into a panda DataFrame, which contains 10,194 entries and 20 columns, detailing order information, customer data, product categories, sales, quantities, discounts, and profits.
 
@@ -119,7 +120,7 @@ Identified missing values in columns 'Segment', 'Sales', and 'Quantity', with 50
 
 ![](figures/MissingValues.png)
 
-Data Visualization
+**Data Visualization**
 
 Several visualizations were created, including a histogram for the Quantity sold based on Sub-Category and a scatter plot comparing sales and profit, providing visual insights into the data distributions and relationships between key variables. The visualizations generated for the Data preprocessing can be seen below.
 
@@ -133,7 +134,7 @@ A scatter plot between 'Sales' and 'Profit' revealed the relationship between th
 
 ![](figures/ScatterPlot.png)
 
-Data Exploration
+**Data Exploration**
 
 Exploratory Data Analysis (EDA) Descriptive Statistics: Calculated descriptive statistics, providing a summary of the central tendency, dispersion, and shape of the dataset's distribution. Descriptive statistics for 'Sales' and 'Profit' were included, offering insights into average sales and profit margins, as well as understanding the variability and distribution of these key metrics.
 
@@ -152,22 +153,21 @@ The standard deviation for 'Profit' was relatively high, pointing to large varia
 
 ![](figures/EDACode3.png)
 
-Data Transformation
+**Data Transformation**
 
-
-One Hot Encoding
+*One Hot Encoding*
 
 This technique converts categorical variables into a form that could be provided to machine learning algorithms to better predict the outcome. However, an error with the OneHotEncoder suggests there might have been a problem with this step.
 
 ![](figures/OneHotEncoding.png)
 
-Standardization
+*Standardization*
 
 We included a computation of z-scores for the 'Sales' column, which is a form of standardization. This process adjusts the data to have a mean of 0 and a standard deviation of 1, which is particularly useful for comparison between different datasets and for models that assume normally distributed data.
 
 ![](figures/Standardization.png)
 
-Data Analysis and Results
+*Data Analysis and Results*
 
 ![](figures/DataAnalysisResults1.png)
 
